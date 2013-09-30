@@ -1,0 +1,15 @@
+/*colors & font*/
+
+$fontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fontSize: 14px;
+$fontColor: #555;
+
+@import "dropDown";
+
+body{
+  font-family: $fontFamily;
+  font-size: 14px;
+  color: $fontColor;
+  line-height: 1;
+}
+

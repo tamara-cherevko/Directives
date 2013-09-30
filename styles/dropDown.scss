@@ -1,0 +1,90 @@
+/*  dropdown-list  */
+$dropDownColor: #555555;
+$dropDownTitleBackground: #e5e5e5;
+$dropDownTitleTextShadow: 0 1px 0 #f5f5f5;
+$dropDownLeftMargin: 15px;
+
+@mixin icon-right{
+  font-family: FontAwesome;
+  position: absolute;
+  font-weight: bolder;
+  right: 10px;
+  font-size: 16px;
+}
+
+.dropdown-list{
+  color: $dropDownColor;
+  cursor: pointer;
+  margin-bottom: 10px;
+  position: relative;
+  .dropdown-list__title{
+    background-color: $dropDownTitleBackground;
+    box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.125);
+    text-shadow: $dropDownTitleTextShadow;
+    padding: 10px $dropDownLeftMargin;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  .dropdown-list__title:after{
+    @include icon-right;
+    content: "\f107";
+  }
+  .dropdown-list__body{
+    background-color: #fff;
+    border-color: $dropDownTitleBackground;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.125);
+    display: none;
+    padding: 5px 0 5px;
+    .dropdown-list__items{
+      max-height: 148px;
+      overflow-y: auto;
+      .dropdown-list__item{
+        padding: 5px $dropDownLeftMargin;
+        position: relative;
+      }
+      .dropdown-list__item.active{
+        font-weight: bolder;
+      }
+      .dropdown-list__item.active:after{
+        @include icon-right;
+        content: "\f00c";
+      }
+      .dropdown-list__item:hover{
+        background: #385268;
+        color: #fff;
+        cursor: pointer;
+      }
+      .dropdown-list__separator{
+        height: 1px;
+        background: #ccc;
+        margin: 5px 10px
+      }
+    }
+  }
+}
+/*  open  */
+.dropdown-list.open{
+  .dropdown-list__body{
+    display: block;
+  }
+}
+
+/* disabled */
+.dropdown-list.disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*  white */
+.dropdown-list.white .dropdown-list__title{
+  background-color: #ffffff;
+  border-color: $dropDownTitleBackground;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+
